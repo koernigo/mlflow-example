@@ -17,6 +17,8 @@ import mlflow.sklearn
 
 from pyspark.sql.session import SparkSession
 spark = SparkSession.getActiveSession()
+sc = spark.sparkContext
+
 # Your Spark code here
  
 
