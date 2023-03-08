@@ -18,13 +18,12 @@ from pyspark import SparkContext, SparkConf
  
 # Set up Spark configuration
 conf = SparkConf().setAppName("MyApp").setMaster("local")
-
+print("Spark Context "+sc)
 sc = SparkContext(conf=conf)
  
 # Your Spark code here
  
-# Stop the Spark context
-sc.stop()
+
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -72,5 +71,7 @@ if __name__ == "__main__":
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("r2", r2)
         mlflow.log_metric("mae", mae)
-
+       
+# Stop the Spark context
+sc.stop()
         mlflow.sklearn.log_model(lr, "model")
