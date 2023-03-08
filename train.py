@@ -14,7 +14,17 @@ from sklearn.linear_model import ElasticNet
 
 import mlflow
 import mlflow.sklearn
+from pyspark import SparkContext, SparkConf
+ 
+# Set up Spark configuration
+conf = SparkConf().setAppName("MyApp").setMaster("local")
 
+sc = SparkContext(conf=conf)
+ 
+# Your Spark code here
+ 
+# Stop the Spark context
+sc.stop()
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
