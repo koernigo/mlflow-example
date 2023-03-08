@@ -15,12 +15,7 @@ from sklearn.linear_model import ElasticNet
 import mlflow
 import mlflow.sklearn
 
-from pyspark.context import SparkContext
-from pyspark.sql.session import SparkSession
-sc = SparkContext.getOrCreate();
-
-spark = SparkSession(sc)
-
+spark = SparkSession.getActiveSession()
 # Your Spark code here
  
 
