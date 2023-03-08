@@ -15,13 +15,11 @@ from sklearn.linear_model import ElasticNet
 import mlflow
 import mlflow.sklearn
 
-from pyspark.sql import SparkSession
+from pyspark.context import SparkContext
+from pyspark.sql.session import SparkSession
+sc = SparkContext.getOrCreate();
 
-spark = SparkSession \
-    .builder \
-    .appName("Python Spark SQL basic example") \
-    .config("spark.master", "local") \
-    .getOrCreate()
+spark = SparkSession(sc)
 
 # Your Spark code here
  
