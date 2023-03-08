@@ -18,13 +18,8 @@ import mlflow.sklearn
 from pyspark.sql import SparkSession
 from pyspark.ml.feature import StringIndexer
 import numpy
-spark = SparkSession.builder.getOrCreate()
-df_test = spark.createDataFrame([('a','foo'),('b','bar')],('x1','x2'))
-indexer_test = StringIndexer(inputCol='x1',outputCol='x1_index')
-indx_test = indexer_test.fit(df_test)
-df_test_si = indx_test.transform(df_test)
-df_test_si.show()
-#print(indx_test.getOutputCol())
+spark = SparkSession.builder.appName("App").setMaster("local").getOrCreate()
+common.show_versions(spark)
 
 # Your Spark code here
  
