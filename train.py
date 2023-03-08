@@ -19,8 +19,8 @@ from pyspark import SparkContext, SparkConf
 # Set up Spark configuration
 #conf = SparkConf().setAppName("MyApp").setMaster("local")
 #sc = SparkContext(conf=conf)
-sc=SparkContext.getOrCreate()
-#print("Spark Context "+sc)
+#sc=SparkContext.getOrCreate()
+print("Spark Context "+sc)
 
 # Your Spark code here
  
