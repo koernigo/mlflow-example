@@ -18,9 +18,9 @@ from pyspark import SparkContext, SparkConf
  
 # Set up Spark configuration
 conf = SparkConf().setAppName("MyApp").setMaster("local")
-print("Spark Context "+sc)
 sc = SparkContext(conf=conf)
- 
+print("Spark Context "+sc)
+
 # Your Spark code here
  
 
