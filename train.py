@@ -18,7 +18,7 @@ import mlflow.sklearn
 from pyspark.sql import SparkSession
 from pyspark.ml.feature import StringIndexer
 import numpy
-spark = SparkSession.builder.appName("App").setMaster("local").getOrCreate()
+spark = SparkSession.builder.appName("App").master("local").getOrCreate()
 common.show_versions(spark)
 
 # Your Spark code here
