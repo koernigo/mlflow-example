@@ -14,17 +14,13 @@ from sklearn.linear_model import ElasticNet
 
 import mlflow
 import mlflow.sklearn
-#from pyspark import SparkContext, SparkConf
- 
-from pyspark.context import SparkContext
-from pyspark.sql.session import SparkSession
-sc = SparkContext.getOrCreate();
-spark = SparkSession(sc)
-# Set up Spark configuration
-#conf = SparkConf().setAppName("MyApp").setMaster("local")
-#sc = SparkContext(conf=conf)
-#sc=SparkContext.getOrCreate()
-print("Spark Context "+sc)
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession \
+    .builder \
+    .config("spark.master", "local") \
+    .getOrCreate()
 
 # Your Spark code here
  
