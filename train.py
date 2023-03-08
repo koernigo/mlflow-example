@@ -16,8 +16,11 @@ import mlflow
 import mlflow.sklearn
 
 from pyspark.sql.session import SparkSession
-spark = SparkSession.getActiveSession()
-sc = spark.sparkContext
+
+from pyspark.context import SparkContext
+from pyspark.sql.session import SparkSession
+sc = SparkContext.getOrCreate();
+spark = SparkSession(sc)
 
 # Your Spark code here
  
