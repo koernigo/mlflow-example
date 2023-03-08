@@ -17,8 +17,9 @@ import mlflow.sklearn
 from pyspark import SparkContext, SparkConf
  
 # Set up Spark configuration
-conf = SparkConf().setAppName("MyApp").setMaster("local")
-sc = SparkContext(conf=conf)
+#conf = SparkConf().setAppName("MyApp").setMaster("local")
+#sc = SparkContext(conf=conf)
+sc=SparkContext.getOrCreate()
 print("Spark Context "+sc)
 
 # Your Spark code here
@@ -73,4 +74,4 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
         mlflow.sklearn.log_model(lr, "model")
 # Stop the Spark context
-sc.stop()
+#sc.stop()
